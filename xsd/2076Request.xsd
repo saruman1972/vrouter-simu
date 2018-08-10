@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2076" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>公务卡卡信息查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="REQUEST">
+		<xs:sequence>
+			<xs:element name="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PIN_CHK_FLG">
+			      <xs:annotation>
+				<xs:documentation>是否密码标志</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>不检查密码</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>检查查询密码</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>检查取现密码</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="PIN" type="PIN">
+				<xs:annotation>
+					<xs:documentation>密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FUNC_CODE">
+			      <xs:annotation>
+				<xs:documentation>功能码</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>查询卡信息</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>启用</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="3">
+				    <xs:annotation>
+				      <xs:documentation>停用</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_CODE">
+				<xs:annotation>
+					<xs:documentation>单位编号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+				<xs:annotation>
+					<xs:documentation>系统保留域</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,7 @@
+<vrouter-config>
+  <ip>127.0.1.1</ip>
+  <port>8888</port>
+  <pik>30210696B03D56D2D85DA40B0273F96C</pik>
+  <mak>6604C9237FFD9173</mak>
+  <zmk>11111111111111111111111111111111</zmk>
+</vrouter-config>

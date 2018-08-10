@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2010" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>密码管理</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+		<xs:complexType name="REQUEST">
+			<xs:sequence>
+				<xs:element name="CARD_NO" type="CARD_NO">
+							<xs:annotation>
+								<xs:documentation>卡号</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="FUNC_CODE">
+							<xs:annotation>
+								<xs:documentation>功能码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>修改密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>重置密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>密码解锁</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>设置密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PIN_TYPE">
+							<xs:annotation>
+								<xs:documentation>密码类型</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>预借现金密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>查询密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ACTIVE_CODE">
+							<xs:annotation>
+								<xs:documentation>激活码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="OLD_PIN">
+							<xs:annotation>
+								<xs:documentation>旧密码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="32"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="NEW_PIN">
+							<xs:annotation>
+								<xs:documentation>新密码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="32"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="TRACK2_DATA">
+							<xs:annotation>
+								<xs:documentation>二磁道信息</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="40"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CHK_OPTION">
+							<xs:annotation>
+								<xs:documentation>检查选项</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CVN2">
+							<xs:annotation>
+								<xs:documentation>CVN2</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="3"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CERT_TYPE" type="ID_TYPE">
+							<xs:annotation>
+								<xs:documentation>证件类型</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CERT_NO">
+							<xs:annotation>
+								<xs:documentation>证件号码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="HOME_TEL">
+							<xs:annotation>
+								<xs:documentation>家庭电话</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="17"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="MOBIL_TEL">
+							<xs:annotation>
+								<xs:documentation>移动电话</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="12"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="BIRTHDAY">
+							<xs:annotation>
+								<xs:documentation>出生年月日</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="RESERV">
+							<xs:annotation>
+								<xs:documentation>保留</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+</xs:complexType>
+</xs:schema>

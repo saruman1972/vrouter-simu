@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2011" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>自扣还款签约管理</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME">
+				<xs:annotation>
+					<xs:documentation>持卡人姓名</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CUR_CODE" type="CURR_CD">
+				<xs:annotation>
+					<xs:documentation>币种</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REPAY_ACCT_NO">
+				<xs:annotation>
+					<xs:documentation>还款账号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PAYMENT_MODE">
+			      <xs:annotation>
+				<xs:documentation>自扣还款方式</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>全额还款</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>最低还款</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="ACCT_BRAN_CODE">
+				<xs:annotation>
+					<xs:documentation>账户机构</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="APPLY_BRAN_CODE">
+				<xs:annotation>
+					<xs:documentation>营销机构</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

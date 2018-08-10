@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2008" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>卡片挂失</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="REQUEST">
+		<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CURR_CD" type="CURR_CD">
+				<xs:annotation>
+					<xs:documentation>币种</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN_IND" type="PIN_IND">
+				<xs:annotation>
+					<xs:documentation>是否密码标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN" type="PIN">
+				<xs:annotation>
+					<xs:documentation>密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="FUNC_CD">
+              <xs:annotation>
+                <xs:documentation>功能码</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>解挂</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="LOSS_TYPE">
+              <xs:annotation>
+                <xs:documentation>挂失类型</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>临时挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>正式挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>密码挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+			<xs:element name="CHK_OPTION" type="CHK_OPTION">
+				<xs:annotation>
+					<xs:documentation>检查项目选择</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_TYPE" type="ID_TYPE">
+				<xs:annotation>
+					<xs:documentation>证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_NO" type="ID_NO">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HOME_PHONE" type="HOME_PHONE">
+				<xs:annotation>
+					<xs:documentation>家庭电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MOBILE" type="MOBILE">
+				<xs:annotation>
+					<xs:documentation>手机号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRY_DATE" type="EXPIRY_DATE">
+				<xs:annotation>
+					<xs:documentation>有效期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LOSS_REASON">
+				<xs:annotation>
+					<xs:documentation>挂失原因</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AGT_ID_TYPE" type="ID_TYPE">
+				<xs:annotation>
+					<xs:documentation>代理人证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AGT_ID_NO">
+				<xs:annotation>
+					<xs:documentation>代理人证件号码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERVED">
+				<xs:annotation>
+					<xs:documentation>保留域</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

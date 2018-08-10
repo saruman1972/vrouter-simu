@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2028" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>基本资料查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+	<xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="STATE_DATE">
+				<xs:annotation>
+					<xs:documentation>账单日</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DUE_PAYMENT_DATE">
+				<xs:annotation>
+					<xs:documentation>到期还款日</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CREDIT_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>信用额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CASH_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>预借现金额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CARD_RELATION">
+			      <xs:annotation>
+				<xs:documentation>申请主附卡标志</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>主卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>附卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="TR_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>本期全部应还款金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MININUM_PATMENT_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>本期最低还款额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PREV_STATE_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>上期账单金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PREV_PAY_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>上期还款金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CURR_STATE_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>本期账单金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CURR_PAY_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>本期还款金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CYCLE_INT" type="B">
+				<xs:annotation>
+					<xs:documentation>循环利息</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADJ_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>调整金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_PAGE_NO">
+				<xs:annotation>
+					<xs:documentation>查询页号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RTN_PAGE_FLG">
+				<xs:annotation>
+					<xs:documentation>翻页标志</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+				<xs:annotation>
+					<xs:documentation>保留</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV1">
+				<xs:annotation>
+					<xs:documentation>全部还款金额</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV2">
+				<xs:annotation>
+					<xs:documentation>保留2</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DETAIL_CNT">
+				<xs:annotation>
+					<xs:documentation>明细序号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_DATE">
+				<xs:annotation>
+					<xs:documentation>交易日</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SET_DATE">
+				<xs:annotation>
+					<xs:documentation>记账日</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ABS">
+				<xs:annotation>
+					<xs:documentation>交易摘要</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OPP_ACCT_NO">
+				<xs:annotation>
+					<xs:documentation>对方账号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OPP_ACCT_NAME">
+				<xs:annotation>
+					<xs:documentation>对方户名</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MERCHANT_NAME">
+				<xs:annotation>
+					<xs:documentation>商户名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AUTH_CODE">
+				<xs:annotation>
+					<xs:documentation>授权码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CUR_CODE" type="CURR_CD">
+				<xs:annotation>
+					<xs:documentation>币种</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DC_FLAG">
+			      <xs:annotation>
+				<xs:documentation>借贷标志</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="D">
+				    <xs:annotation>
+				      <xs:documentation>借</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="C">
+				    <xs:annotation>
+				      <xs:documentation>贷</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>交易金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ABSTRACT">
+				<xs:annotation>
+					<xs:documentation>保留</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

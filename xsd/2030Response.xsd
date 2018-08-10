@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2030" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>卡历史账单查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+		<xs:complexType name="RESPONSE">
+			<xs:sequence>
+			<xs:element name="QRY_PAGE_NO">
+							<xs:annotation>
+								<xs:documentation>查询页号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="RTN_PAGE_FLG">
+							<xs:annotation>
+								<xs:documentation>翻页标志</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>查询完毕</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>需继续翻页查询</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+              </xs:simpleType>
+			</xs:element>
+			<xs:element name="RECORDS">
+							<xs:annotation>
+								<xs:documentation>明细笔数</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="START_DATE">
+							<xs:annotation>
+								<xs:documentation>账单月份</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="TOTAL_PAY_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>人民币本期应还总金额</xs:documentation>
+							</xs:annotation>
+			</xs:element>
+			<xs:element name="FORE_PAY_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>外币本期应还总金额</xs:documentation>
+							</xs:annotation>
+			</xs:element>
+			</xs:sequence>
+</xs:complexType>
+</xs:schema>

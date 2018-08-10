@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2014" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>调整服务方式</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+		<xs:complexType name="RESPONSE">
+			<xs:sequence>
+				<xs:element name="" type="CARD_NO">
+							<xs:annotation>
+								<xs:documentation>卡号</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="NAME">
+							<xs:annotation>
+								<xs:documentation>持卡人姓名</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="30"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PUNC">
+							<xs:annotation>
+								<xs:documentation>服务代码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="2"/>
+                  <xs:enumeration value="01">
+                    <xs:annotation>
+                      <xs:documentation>调整消费是否选择密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="02">
+                    <xs:annotation>
+                      <xs:documentation>调整账单寄送方式</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="03">
+                    <xs:annotation>
+                      <xs:documentation>是否开通短信服务</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="04">
+                    <xs:annotation>
+                      <xs:documentation>可取现</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="05">
+                    <xs:annotation>
+                      <xs:documentation>可转账</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="06">
+                    <xs:annotation>
+                      <xs:documentation>可存款</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="07">
+                    <xs:annotation>
+                      <xs:documentation>可消费</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="08">
+                    <xs:annotation>
+                      <xs:documentation>可积分</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="09">
+                    <xs:annotation>
+                      <xs:documentation>可支付</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="10">
+                    <xs:annotation>
+                      <xs:documentation>附卡查询账户</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="11">
+                    <xs:annotation>
+                      <xs:documentation>自动续卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="12">
+                    <xs:annotation>
+                      <xs:documentation>设置账单地址</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="13">
+                    <xs:annotation>
+                      <xs:documentation>可超限</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="">
+							<xs:annotation>
+								<xs:documentation>服务内容</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="SCARD_FLAG">
+							<xs:annotation>
+								<xs:documentation>主副卡修改标志</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>只修改主卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>只修改指定副卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>修改主卡+指定副卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>修改主卡+所有副卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>修改所有副卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="AUTO_BRAN_CODE">
+							<xs:annotation>
+								<xs:documentation>自动续卡标志</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>不自动续卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>自动续卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ACCT_BRAN_CODE">
+							<xs:annotation>
+								<xs:documentation>账户机构</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="APPLY_BRAN_CODE">
+							<xs:annotation>
+								<xs:documentation>营销机构</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+</xs:complexType>
+</xs:schema>

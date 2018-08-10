@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+		<xs:element name="SERVICE_ID" fixed="2031" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>卡交易明细</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="QRY_PAGE_NO">
+				<xs:annotation>
+					<xs:documentation>查询页号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+						<xs:element name="RTN_PAGE_FLG">
+							<xs:annotation>
+								<xs:documentation>翻页标志</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="RESERV">
+							<xs:annotation>
+								<xs:documentation>保留</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="RECORDS">
+							<xs:annotation>
+								<xs:documentation>明细笔数</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="CARD_NO">
+							<xs:annotation>
+								<xs:documentation>交易卡号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="TRANS_DATE">
+							<xs:annotation>
+								<xs:documentation>交易日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="TRANS_TIME">
+							<xs:annotation>
+								<xs:documentation>交易日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="TERM_NO">
+							<xs:annotation>
+								<xs:documentation>终端号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="MERCHANT_TYPE">
+							<xs:annotation>
+								<xs:documentation>商户类型</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="MERCHANT_NO">
+							<xs:annotation>
+								<xs:documentation>商户号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="15"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="MERCHANT_NAME">
+							<xs:annotation>
+								<xs:documentation>交易地点</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="TRANS_BRAN_CODE">
+							<xs:annotation>
+								<xs:documentation>交易机构</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="TRANS_CHANNEL">
+							<xs:annotation>
+								<xs:documentation>交易渠道</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:length value="2"/>
+                  <xs:enumeration value="01">
+                    <xs:annotation>
+                      <xs:documentation>柜台</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="02">
+                    <xs:annotation>
+                      <xs:documentation>ATM/CDM</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="03">
+                    <xs:annotation>
+                      <xs:documentation>POS</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="04">
+                    <xs:annotation>
+                      <xs:documentation>银联</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="05">
+                    <xs:annotation>
+                      <xs:documentation>网银</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="06">
+                    <xs:annotation>
+                      <xs:documentation>手机银行</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="07">
+                    <xs:annotation>
+                      <xs:documentation>电话银行</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="08">
+                    <xs:annotation>
+                      <xs:documentation>短信</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="09">
+                    <xs:annotation>
+                      <xs:documentation>网上支付</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="10">
+                    <xs:annotation>
+                      <xs:documentation>批量业务</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="11">
+                    <xs:annotation>
+                      <xs:documentation>支付清算</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="12">
+                    <xs:annotation>
+                      <xs:documentation>管理系统</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="13">
+                    <xs:annotation>
+                      <xs:documentation>农信银</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+              </xs:simpleType>
+			</xs:element>
+						<xs:element name="TRANS_SOURCE">
+							<xs:annotation>
+								<xs:documentation>交易来源</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="1"/>
+									<xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>系统内本地</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>系统内异地</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>系统外本地</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>系统外异地</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="5">
+                    <xs:annotation>
+                      <xs:documentation>港澳</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="6">
+                    <xs:annotation>
+                      <xs:documentation>境外</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="PRODUCT_CODE">
+							<xs:annotation>
+								<xs:documentation>产品代码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="OPP_ACCT_NO">
+							<xs:annotation>
+								<xs:documentation>对方账号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="32"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="OPP_ACCT_NAME">
+							<xs:annotation>
+								<xs:documentation>对方户名</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>交易金额</xs:documentation>
+							</xs:annotation>
+			</xs:element>
+						<xs:element name="DC_FLAG">
+							<xs:annotation>
+								<xs:documentation>借贷标志</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="1"/>
+									<xs:enumeration value="D">
+                    <xs:annotation>
+                      <xs:documentation>借</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="C">
+                    <xs:annotation>
+                      <xs:documentation>贷</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="CUR_CODE" type="CURR_CD">
+							<xs:annotation>
+								<xs:documentation>交易币种</xs:documentation>
+							</xs:annotation>
+			</xs:element>
+						<xs:element name="AUTH_CODE">
+							<xs:annotation>
+								<xs:documentation>授权号码</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="ABSTRACT">
+							<xs:annotation>
+								<xs:documentation>交易描述</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="ACCT_DATE">
+							<xs:annotation>
+								<xs:documentation>入账日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="10"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="SET_DATE">
+							<xs:annotation>
+								<xs:documentation>会计日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="10"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+						<xs:element name="OVPAY_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>溢缴款发生额</xs:documentation>
+							</xs:annotation>
+			</xs:element>
+						<xs:element name="OVPAY_BAL" type="B">
+							<xs:annotation>
+								<xs:documentation>溢缴款余额</xs:documentation>
+							</xs:annotation>
+			</xs:element>
+						<xs:element name="OVLMT_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>超限透支发生额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="OVLMT_BAL" type="B">
+							<xs:annotation>
+								<xs:documentation>超限透支余额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="CA_OVDFT_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>取现透支发生额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="CA_OVDFT_BAL" type="B">
+							<xs:annotation>
+								<xs:documentation>取现透支余额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="INST_OVDFT_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>分期透支发生额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="INST_OVDFT_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>分期透支余额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="FUR_OVDFT_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>消费透支发生额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="FUR_OVDFT_BAL" type="B">
+							<xs:annotation>
+								<xs:documentation>消费透支余额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="ACCT_BAL" type="B">
+							<xs:annotation>
+								<xs:documentation>账户余额</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="FEE_AMT" type="B">
+							<xs:annotation>
+								<xs:documentation>手续费</xs:documentation>
+							</xs:annotation>
+							
+			</xs:element>
+						<xs:element name="STATE_YM">
+							<xs:annotation>
+								<xs:documentation>账单年月</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

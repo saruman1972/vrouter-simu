@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2022" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>积分明细查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="QRY_PAGE_NO">
+				<xs:annotation>
+					<xs:documentation>查询页号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RTN_PAGE_FLG">
+				<xs:annotation>
+					<xs:documentation>翻页标志</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RECORDS">
+				<xs:annotation>
+					<xs:documentation>本次返回交易条数</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SET_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>积分日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_TIME">
+				<xs:annotation>
+					<xs:documentation>积分时间</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>交易金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AMOUNT_SIGN">
+				<xs:annotation>
+					<xs:documentation>交易金额符号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CURR_CODE" type="CURR_CD">
+				<xs:annotation>
+					<xs:documentation>币种</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BASE_BONUS">
+				<xs:annotation>
+					<xs:documentation>基本积分</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BASE_BONUS_SIGN">
+				<xs:annotation>
+					<xs:documentation>基本积分符号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ENC_BONUS">
+				<xs:annotation>
+					<xs:documentation>奖励积分</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CURR_BONUS">
+				<xs:annotation>
+					<xs:documentation>积分余额</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BONUS_TYPE">
+			      <xs:annotation>
+				<xs:documentation>积分类型</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="10">
+				    <xs:annotation>
+				      <xs:documentation>交易积分</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="11">
+				    <xs:annotation>
+				      <xs:documentation>积分活动</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="12">
+				    <xs:annotation>
+				      <xs:documentation>积分奖励</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				   <xs:enumeration value="13">
+				    <xs:annotation>
+				      <xs:documentation>积分之星</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="20">
+				    <xs:annotation>
+				      <xs:documentation>积分兑换</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="21">
+				    <xs:annotation>
+				      <xs:documentation>积分购买</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="30">
+				    <xs:annotation>
+				      <xs:documentation>积分调整</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="MERCHANT_NO">
+				<xs:annotation>
+					<xs:documentation>商户编号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_DESC">
+				<xs:annotation>
+					<xs:documentation>交易描述</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

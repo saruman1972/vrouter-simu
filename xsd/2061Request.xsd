@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2061" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>止付/解止付</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="REQUEST">
+    <xs:sequence>
+    	<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CURR_CD" type="CURR_CD">
+				<xs:annotation>
+					<xs:documentation>币种</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN_IND" type="PIN_IND">
+				<xs:annotation>
+					<xs:documentation>是否检查密码</xs:documentation>	
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN" type="PIN">
+				<xs:annotation>
+					<xs:documentation>密码</xs:documentation>	
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_NO" type="ID_NO">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_TYPE" type="ID_TYPE">
+				<xs:annotation>
+					<xs:documentation>证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FUNC_CODE" type="FUNC_CODE">
+				<xs:annotation>
+					<xs:documentation>功能码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+                <xs:documentation>止付</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+                <xs:documentation>解止付</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="STOP_MODE" type="STOP_MODE">
+				<xs:annotation>
+          <xs:documentation>止付方式</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+                <xs:documentation>持卡人止付</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+                <xs:documentation>主卡止付指定附卡</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+                <xs:documentation>主卡止付所有附卡</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+                <xs:documentation>银行止付</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>	
+			</xs:element>
+			<xs:element name="FREEZE_MOD" type="FREEZE_MOD">
+				<xs:annotation>
+          <xs:documentation>解止付方式</xs:documentation>
+        </xs:annotation>	
+        <xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="1"/>
+						<xs:enumeration value="0">
+							<xs:annotation>
+                <xs:documentation>持卡人解止付</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+                <xs:documentation>主卡解止付指定附卡</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+                <xs:documentation>主卡解止付所有附卡</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+                <xs:documentation>银行解止付</xs:documentation>
+              </xs:annotation>	
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>	
+			</xs:element>
+			<xs:element name="SUB_CARD_NO" type="SUB_CARD_NO">
+				<xs:annotation>
+          <xs:documentation>附卡卡号</xs:documentation>
+        </xs:annotation>	
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CAUSE_DESC" type="CAUSE_DESC">
+				<xs:annotation>
+          <xs:documentation>原因描述</xs:documentation>
+        </xs:annotation>	
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV" type="RESERV">
+				<xs:annotation>
+          <xs:documentation>保留</xs:documentation>
+        </xs:annotation>	
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+</xs:schema>

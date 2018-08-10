@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="sqNfsPublic.xsd"/>
+	<xs:element name="SERVICE" type="SERVICE_TYPE"/>
+	<xs:complexType name="SERVICE_TYPE">
+		<xs:sequence>
+			<xs:element name="SERVICE_HEADER" type="SERVICE_HEADER_TYPE"/>
+			<xs:element name="SERVICE_BODY" type="SERVICE_BODY_TYPE"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SERVICE_HEADER_TYPE">
+		<xs:annotation>
+			<xs:documentation>头信息</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+            <xs:element ref="SERVICE_ID">
+                <xs:annotation>
+                    <xs:documentation>交易码</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+			<xs:element name="CHANNEL_ID" type="CHANNEL_ID">
+				<xs:annotation>
+					<xs:documentation>渠道标识</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BRANCH_ID">
+				<xs:annotation>
+					<xs:documentation>银行核心机构号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OP_ID">
+				<xs:annotation>
+					<xs:documentation>银行核心柜员号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SERVICE_SN">
+				<xs:annotation>
+					<xs:documentation>银行核心流水号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BANK_DATE">
+				<xs:annotation>
+					<xs:documentation>银行核心交易日期</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NODE_ID">
+				<xs:annotation>
+					<xs:documentation>节点标识（保留）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="13"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERVED">
+				<xs:annotation>
+					<xs:documentation>保留域（填空）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESP_CD">
+				<xs:annotation>
+					<xs:documentation>响应码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESP_DESC">
+				<xs:annotation>
+					<xs:documentation>响应描述</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RES_SERVICE_SN">
+				<xs:annotation>
+					<xs:documentation>通联发卡系统交易流水号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MAC">
+				<xs:annotation>
+					<xs:documentation>信息安全码MAC</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

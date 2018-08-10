@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2009" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>贷记卡换卡</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+		<xs:complexType name="REQUEST">
+			<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+							<xs:annotation>
+								<xs:documentation>卡号</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CHANGE_REASON">
+							<xs:annotation>
+								<xs:documentation>换卡原因</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="2"/>
+                  <xs:enumeration value="01">
+                    <xs:annotation>
+                      <xs:documentation>卡损坏</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="02">
+                    <xs:annotation>
+                      <xs:documentation>磁条损坏</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="03">
+                    <xs:annotation>
+                      <xs:documentation>制卡错误</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="04">
+                    <xs:annotation>
+                      <xs:documentation>挂失换卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="05">
+                    <xs:annotation>
+                      <xs:documentation>更换姓名</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="06">
+                    <xs:annotation>
+                      <xs:documentation>没收到</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="07">
+                    <xs:annotation>
+                      <xs:documentation>到期换卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="08">
+                    <xs:annotation>
+                      <xs:documentation>CVV错误</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="11">
+                    <xs:annotation>
+                      <xs:documentation>其他原因</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="DSPCH_MODE">
+							<xs:annotation>
+								<xs:documentation>递卡方式</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>上门领取</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                   <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>其他方式</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="DSPCH_ATTR">
+							<xs:annotation>
+								<xs:documentation>邮寄性质</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>免费用</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>本地邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>外地邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>境外邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PINM_OPTION">
+							<xs:annotation>
+								<xs:documentation>密信选项</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>需要密信</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>不需要密信</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PINM_DISPA_MODE">
+							<xs:annotation>
+								<xs:documentation>密信递送方式</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>免费</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>本地邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:length value="1"/>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>外地邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>境外邮寄</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="URGENT_FLAG">
+							<xs:annotation>
+								<xs:documentation></xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>不加急</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>加急</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="MALL_ADDR">
+							<xs:annotation>
+								<xs:documentation>收件人地址</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="MAIL_ZIP">
+							<xs:annotation>
+								<xs:documentation>收件人邮编</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="6"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="MAIL_NAME">
+							<xs:annotation>
+								<xs:documentation>收件人姓名</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="MAIL_PHONE">
+							<xs:annotation>
+								<xs:documentation>联系电话</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="RESERV">
+							<xs:annotation>
+								<xs:documentation>保留</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="40"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+</xs:complexType>
+</xs:schema>

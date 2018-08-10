@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2028" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>基本资料查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="ID_TYPE" type="ID_TYPE">
+				<xs:annotation>
+					<xs:documentation>证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_NO" type="ID_NO">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME">
+				<xs:annotation>
+					<xs:documentation>客户名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="SEX">
+			      <xs:annotation>
+				<xs:documentation>性别</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="M">
+				    <xs:annotation>
+				      <xs:documentation>男</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="F">
+				    <xs:annotation>
+				      <xs:documentation>女</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="U">
+				    <xs:annotation>
+				      <xs:documentation>未知</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="PY_NAME">
+				<xs:annotation>
+					<xs:documentation>客户拼音名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="COUNTRY_CODE">
+				<xs:annotation>
+					<xs:documentation>国籍代码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CITY_CODE">
+				<xs:annotation>
+					<xs:documentation>城市代码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="CUST_LEVEL">
+			      <xs:annotation>
+				<xs:documentation>客户级别</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>普卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>金卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="6">
+				    <xs:annotation>
+				      <xs:documentation>白金卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			 <xs:element name="MARRIAGE_CODE">
+			      <xs:annotation>
+				<xs:documentation>婚姻情况</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="10">
+				    <xs:annotation>
+				      <xs:documentation>未婚</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="20">
+				    <xs:annotation>
+				      <xs:documentation>已婚</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="21">
+				    <xs:annotation>
+				      <xs:documentation>初婚</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				<xs:enumeration value="22">
+				    <xs:annotation>
+				      <xs:documentation>再婚</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="23">
+				    <xs:annotation>
+				      <xs:documentation>复婚</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="30">
+				    <xs:annotation>
+				      <xs:documentation>丧偶</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="40">
+				    <xs:annotation>
+				      <xs:documentation>离婚</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="90">
+				    <xs:annotation>
+				      <xs:documentation>未说明</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			 <xs:element name="DEGREE_CODE">
+			      <xs:annotation>
+				<xs:documentation>教育程度</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="10">
+				    <xs:annotation>
+				      <xs:documentation>研究生及以上</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="20">
+				    <xs:annotation>
+				      <xs:documentation>大学本科</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="30">
+				    <xs:annotation>
+				      <xs:documentation>大专专科</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				<xs:enumeration value="40">
+				    <xs:annotation>
+				      <xs:documentation>中等专业学校或中等技术学校</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="50">
+				    <xs:annotation>
+				      <xs:documentation>技术学校</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="60">
+				    <xs:annotation>
+				      <xs:documentation>高中</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="70">
+				    <xs:annotation>
+				      <xs:documentation>初中</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="80">
+				    <xs:annotation>
+				      <xs:documentation>小学</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="90">
+				    <xs:annotation>
+				      <xs:documentation>文盲或半文盲</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="99">
+				    <xs:annotation>
+				      <xs:documentation>未知</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="CHILDREN_CODE">
+			      <xs:annotation>
+				<xs:documentation>子女情况</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>无子女</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>有子女</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="HOME_TEL">
+				<xs:annotation>
+					<xs:documentation>住宅电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MOBILE_TEL">
+				<xs:annotation>
+					<xs:documentation>移动电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EMAIL">
+				<xs:annotation>
+					<xs:documentation>EMAIL</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HOME_ADDR">
+				<xs:annotation>
+					<xs:documentation>住宅地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HOME_ZIP">
+				<xs:annotation>
+					<xs:documentation>住宅地址邮编</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IDENTITY_ADDR">
+				<xs:annotation>
+					<xs:documentation>户籍地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IDENTITY_ZIP">
+				<xs:annotation>
+					<xs:documentation>户籍地址邮编</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTHER_ADDR">
+				<xs:annotation>
+					<xs:documentation>其他地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTHER_ZIP">
+				<xs:annotation>
+					<xs:documentation>其地他址邮编</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_NAME">
+				<xs:annotation>
+					<xs:documentation>单位名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="INDUSTRY_CODE">
+			      <xs:annotation>
+				<xs:documentation>行业类别</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="A">
+				    <xs:annotation>
+				      <xs:documentation>农、林、牧、渔业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="B">
+				    <xs:annotation>
+				      <xs:documentation>采矿业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="C">
+				    <xs:annotation>
+				      <xs:documentation>制造业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				<xs:enumeration value="D">
+				    <xs:annotation>
+				      <xs:documentation>电力、燃气及水的生产和供应业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="E">
+				    <xs:annotation>
+				      <xs:documentation>建筑业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="F">
+				    <xs:annotation>
+				      <xs:documentation>交通运输、仓储和邮政</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="G">
+				    <xs:annotation>
+				      <xs:documentation>信息传输、计算机服务和软件业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="H">
+				    <xs:annotation>
+				      <xs:documentation>批发和零售业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="I">
+				    <xs:annotation>
+				      <xs:documentation>住宿和餐饮业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="J">
+				    <xs:annotation>
+				      <xs:documentation>银行业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				   <xs:enumeration value="K">
+				    <xs:annotation>
+				      <xs:documentation>房地产业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="L">
+				    <xs:annotation>
+				      <xs:documentation>租赁和商务服务业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="M">
+				    <xs:annotation>
+				      <xs:documentation>科学研究、技术服务和地质勘察业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				<xs:enumeration value="N">
+				    <xs:annotation>
+				      <xs:documentation>水利、环境和公共设施管理业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="O">
+				    <xs:annotation>
+				      <xs:documentation>居民服务和其他服务业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="P">
+				    <xs:annotation>
+				      <xs:documentation>教育</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="Q">
+				    <xs:annotation>
+				      <xs:documentation>卫生、社会保障和社会福利业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="R">
+				    <xs:annotation>
+				      <xs:documentation>文化、体育和娱乐业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="S">
+				    <xs:annotation>
+				      <xs:documentation>公共管理和社会组织</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="T">
+				    <xs:annotation>
+				      <xs:documentation>国际组织</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_ATTR">
+			      <xs:annotation>
+				<xs:documentation>单位性质</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>政府机关/事业单位</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>国营企业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="3">
+				    <xs:annotation>
+				      <xs:documentation>三资企业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				<xs:enumeration value="4">
+				    <xs:annotation>
+				      <xs:documentation>股份制企业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="5">
+				    <xs:annotation>
+				      <xs:documentation>民营企业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="6">
+				    <xs:annotation>
+				      <xs:documentation>私营企业</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="7">
+				    <xs:annotation>
+				      <xs:documentation>军队</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="8">
+				    <xs:annotation>
+				      <xs:documentation>其他</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="DEPT_DESC">
+				<xs:annotation>
+					<xs:documentation>任职部门</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DUTY_CODE">
+			      <xs:annotation>
+				<xs:documentation>单位性质</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>(副)厅/局级以上或企业总经理/总裁</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>(副)处级或企业高级经理</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="3">
+				    <xs:annotation>
+				      <xs:documentation>科级或企业经理</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				<xs:enumeration value="4">
+				    <xs:annotation>
+				      <xs:documentation>科员或一般员工</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_ADDR">
+				<xs:annotation>
+					<xs:documentation>单位地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_ZIP">
+				<xs:annotation>
+					<xs:documentation>单位地址邮编</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_TEL">
+				<xs:annotation>
+					<xs:documentation>单位电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="YEAR_INCOME" type="B">
+				<xs:annotation>
+					<xs:documentation>年收入</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			 <xs:element name="STAFF_FLAG">
+			      <xs:annotation>
+				<xs:documentation>员工标志</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>非员工</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>员工</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="BIRTHDAY" type="D8">
+				<xs:annotation>
+					<xs:documentation>出生日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DIRE_LINK_MAN_NAME">
+				<xs:annotation>
+					<xs:documentation>直属联系人姓名</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="DIRE_LINK_MAN_SEX">
+			      <xs:annotation>
+				<xs:documentation>直属联系人性别</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="M">
+				    <xs:annotation>
+				      <xs:documentation>男</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="F">
+				    <xs:annotation>
+				      <xs:documentation>女</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="U">
+				    <xs:annotation>
+				      <xs:documentation>未知</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_RELA">
+			      <xs:annotation>
+				<xs:documentation>直属联系人关系</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>配偶</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>父母</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>子女</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="3">
+				    <xs:annotation>
+				      <xs:documentation>兄弟姐妹</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_TEL">
+				<xs:annotation>
+					<xs:documentation>直属联系人电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_MOBILE_TEL">
+				<xs:annotation>
+					<xs:documentation>直属联系人移动电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_ADDR">
+				<xs:annotation>
+					<xs:documentation>直属联系人地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_CORP_NAME">
+				<xs:annotation>
+					<xs:documentation>直属联系人单位名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_CORP_ADDR">
+				<xs:annotation>
+					<xs:documentation>直属联系人单位地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DIRE_LINK_CORP_TEL">
+				<xs:annotation>
+					<xs:documentation>直属联系人单位电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_MAN_NAME">
+				<xs:annotation>
+					<xs:documentation>其他联系人姓名</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="OTH_LINK_MAN_SEX">
+			      <xs:annotation>
+				<xs:documentation>其他联系人性别</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="M">
+				    <xs:annotation>
+				      <xs:documentation>男</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="F">
+				    <xs:annotation>
+				      <xs:documentation>女</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="U">
+				    <xs:annotation>
+				      <xs:documentation>未知</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_RELA">
+			      <xs:annotation>
+				<xs:documentation>其他联系人关系</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>同事</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>同学</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>朋友</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_TEL">
+				<xs:annotation>
+					<xs:documentation>其他联系人电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_MOBILE_TEL">
+				<xs:annotation>
+					<xs:documentation>其他联系人移动电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_ADDR">
+				<xs:annotation>
+					<xs:documentation>其他联系人地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_CORP_NAME">
+				<xs:annotation>
+					<xs:documentation>其他联系人单位名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_CORP_ADDR">
+				<xs:annotation>
+					<xs:documentation>其他联系人单位地址</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OTH_LINK_CORP_TEL">
+				<xs:annotation>
+					<xs:documentation>其他联系人单位电话</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+				<xs:annotation>
+					<xs:documentation>保留</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

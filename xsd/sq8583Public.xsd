@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="B0">
+		<xs:annotation>
+			<xs:documentation>不带小数的金额</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B">
+		<xs:annotation>
+			<xs:documentation>12.2金额字段</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+            <xs:length value="12"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2">
+		<xs:annotation>
+			<xs:documentation>2位金额格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="D8" id="D">
+		<xs:annotation>
+			<xs:documentation>8位的日期格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="D6">
+		<xs:annotation>
+			<xs:documentation>6位日期格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="D4">
+		<xs:annotation>
+			<xs:documentation>4位日期格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="H">
+		<xs:annotation>
+			<xs:documentation>十六进制数据</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+            <xs:pattern value="^[0-9a-fA-F]*$"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T">
+		<xs:annotation>
+			<xs:documentation>时间戳</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="C">
+		<xs:annotation>
+			<xs:documentation>字符格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="N">
+		<xs:annotation>
+			<xs:documentation>数字格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="CHANNEL_ID">
+		<xs:annotation>
+			<xs:documentation>服务渠道编号</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+			<xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:documentation>本行柜台</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:documentation>本行ATM/CDM</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:documentation>本行POS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="04">
+                <xs:annotation>
+                    <xs:documentation>银联（含柜面通）</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="05">
+                <xs:annotation>
+                    <xs:documentation>网银</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="06">
+                <xs:annotation>
+                    <xs:documentation>手机银行</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="07">
+                <xs:annotation>
+                    <xs:documentation>CallCenter</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="08">
+                <xs:annotation>
+                    <xs:documentation>短信</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="09">
+                <xs:annotation>
+                    <xs:documentation>网上支付</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="10">
+                <xs:annotation>
+                    <xs:documentation>批量</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="11">
+                <xs:annotation>
+                    <xs:documentation>结算（支付）</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:documentation>系统内（管理系统发起）</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="13">
+                <xs:annotation>
+                    <xs:documentation>农信银</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MTI">
+		<xs:annotation>
+			<xs:documentation>MTI</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B002">
+		<xs:annotation>
+			<xs:documentation>Primary Account Number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:maxLength value="19"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B003">
+		<xs:annotation>
+			<xs:documentation>Processing Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B004">
+		<xs:annotation>
+			<xs:documentation>Transaction Amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B005">
+		<xs:annotation>
+			<xs:documentation>Settlement Amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B006">
+		<xs:annotation>
+			<xs:documentation>Billing Amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B007">
+		<xs:annotation>
+			<xs:documentation>Transmission Date/Time</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B008">
+		<xs:annotation>
+			<xs:documentation>Space Holder</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B009">
+		<xs:annotation>
+			<xs:documentation>Conversion Rate, Settlement</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B010">
+		<xs:annotation>
+			<xs:documentation>Conversion Rate, Cardholder Billing</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B011">
+		<xs:annotation>
+			<xs:documentation>System Trace Audit Number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B012">
+		<xs:annotation>
+			<xs:documentation>Transaction Time, Local</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B013">
+		<xs:annotation>
+			<xs:documentation>Transaction Date, Local</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B014">
+		<xs:annotation>
+			<xs:documentation>Expiration Date</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B015">
+		<xs:annotation>
+			<xs:documentation>Settlement Date</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B016">
+		<xs:annotation>
+			<xs:documentation>Conversion Date</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B017">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B018">
+		<xs:annotation>
+			<xs:documentation>Merchant Category Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B019">
+		<xs:annotation>
+			<xs:documentation>Acquiring Institution Country Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B020">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B021">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B022">
+		<xs:annotation>
+			<xs:documentation>Point Of Service Entry Mode Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B023">
+		<xs:annotation>
+			<xs:documentation>Card Sequence Number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B024">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B025">
+		<xs:annotation>
+			<xs:documentation>Point Of Service Condition Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B026">
+		<xs:annotation>
+			<xs:documentation>Point Of Service Pin Capture Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B027">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B028">
+		<xs:annotation>
+			<xs:documentation>Transaction Fee</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B029">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B030">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B031">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B032">
+		<xs:annotation>
+			<xs:documentation>Acquiring Institution Identification Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B033">
+		<xs:annotation>
+			<xs:documentation>Forwarding Institution Identification Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B034">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B035">
+		<xs:annotation>
+			<xs:documentation>Track 2 Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="37"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B036">
+		<xs:annotation>
+			<xs:documentation>Track 3 Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="104"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B037">
+		<xs:annotation>
+			<xs:documentation>Retrieval Reference Number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B038">
+		<xs:annotation>
+			<xs:documentation>Authorization Identification Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B039">
+		<xs:annotation>
+			<xs:documentation>Response Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B040">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B041">
+		<xs:annotation>
+			<xs:documentation>Card Acceptor Terminal Identification</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B042">
+		<xs:annotation>
+			<xs:documentation>Card Acceptor Identification Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B043">
+		<xs:annotation>
+			<xs:documentation>Card Acceptor Name/Location</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B044">
+		<xs:annotation>
+			<xs:documentation>Additional Response Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B045">
+		<xs:annotation>
+			<xs:documentation>Track 1 Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="79"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B046">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B047">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B048">
+		<xs:annotation>
+			<xs:documentation>Additional Data Private</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="512"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B049">
+		<xs:annotation>
+			<xs:documentation>Transaction Currency Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B050">
+		<xs:annotation>
+			<xs:documentation>Settlement Currency Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B051">
+		<xs:annotation>
+			<xs:documentation>Cardholder Billing Currency Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B052">
+		<xs:annotation>
+			<xs:documentation>PinBlock Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B053">
+		<xs:annotation>
+			<xs:documentation>Security Related Control Information</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B054">
+		<xs:annotation>
+			<xs:documentation>Additional Amounts</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B055">
+		<xs:annotation>
+			<xs:documentation>Integrated Circuit Card (ICC) System Related Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B056">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B057">
+		<xs:annotation>
+			<xs:documentation>Additional Data Private</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B058">
+		<xs:annotation>
+			<xs:documentation>IC (PBOC) Data Reserved</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B059">
+		<xs:annotation>
+			<xs:documentation>Detail Inquiring</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="600"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B060">
+		<xs:annotation>
+			<xs:documentation>Reserved</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B061">
+		<xs:annotation>
+			<xs:documentation>Cardholder Autentication Identification</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B062">
+		<xs:annotation>
+			<xs:documentation>Switching Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B063">
+		<xs:annotation>
+			<xs:documentation>Financial Network data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B064">
+		<xs:annotation>
+			<xs:documentation>MAC</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B065">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B066">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B067">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B068">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B069">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B070">
+		<xs:annotation>
+          <xs:documentation>Network Management Information Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B071">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B072">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B073">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B074">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B075">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B076">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B077">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B078">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B079">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B080">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B081">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B082">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B083">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B084">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B085">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B086">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B087">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B088">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B089">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B090">
+		<xs:annotation>
+          <xs:documentation>Original Data Elements</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="42"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B091">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B092">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B093">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B094">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B095">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B096">
+		<xs:annotation>
+          <xs:documentation>Message Security Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B097">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B098">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B099">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B100">
+		<xs:annotation>
+			<xs:documentation>Receiving Institution Identification Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B101">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B102">
+		<xs:annotation>
+			<xs:documentation>Account Identification 1</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="28"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B103">
+		<xs:annotation>
+			<xs:documentation>Account Identification 2</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="28"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B104">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B105">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B106">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B107">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B108">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B109">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B110">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B111">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B112">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B113">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B114">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B115">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B116">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B117">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B118">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B119">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B120">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B121">
+		<xs:annotation>
+			<xs:documentation>CUP Reserved</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B122">
+		<xs:annotation>
+			<xs:documentation>Acquiring Institution Reserved</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B123">
+		<xs:annotation>
+			<xs:documentation>Issure Institution Reserved</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B124">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B125">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B126">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B127">
+		<xs:annotation>
+			<xs:documentation>Space Hodler</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="N">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B128">
+		<xs:annotation>
+			<xs:documentation>MAC</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F02">
+		<xs:annotation>
+			<xs:documentation>Authorized Amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F03">
+		<xs:annotation>
+			<xs:documentation>Other Amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F1A">
+		<xs:annotation>
+			<xs:documentation>Terminal Country Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_95">
+		<xs:annotation>
+			<xs:documentation>Terminal Verification Result</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_5F2A">
+		<xs:annotation>
+			<xs:documentation>Terminal Country Code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9A">
+		<xs:annotation>
+			<xs:documentation>Transaction Date</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9C">
+		<xs:annotation>
+			<xs:documentation>Transaction Date</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F37">
+		<xs:annotation>
+			<xs:documentation>Unpredictable Number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_82">
+		<xs:annotation>
+			<xs:documentation>Applicatoin Interactive Property</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F36">
+		<xs:annotation>
+			<xs:documentation>Application Transaction Counter</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F10">
+		<xs:annotation>
+			<xs:documentation>Issuer Application Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_9F26">
+		<xs:annotation>
+			<xs:documentation>Application Cryptogram</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_91">
+		<xs:annotation>
+			<xs:documentation>Issuer Authentication Data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TAG_72">
+		<xs:annotation>
+			<xs:documentation>Issuer Script Template 2</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="BCD">
+			<xs:length value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+    <xs:complexType name="B055">
+		<xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2064" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>文件通知</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+		<xs:complexType name="REQUEST">
+			<xs:sequence>
+    		<xs:element name="SEND_DATE">
+							<xs:annotation>
+								<xs:documentation>发送日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="10"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="FIFE_NAME">
+							<xs:annotation>
+								<xs:documentation>文件名称</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="200"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="FIFE_SIZE">
+							<xs:annotation>
+								<xs:documentation>文件大小</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:length value="12"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+							<xs:annotation>
+								<xs:documentation>保留</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="40"/>
+								</xs:restriction>
+							</xs:simpleType>
+			</xs:element>
+			</xs:sequence>
+</xs:complexType>
+</xs:schema>

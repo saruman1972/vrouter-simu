@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2022" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>积分明细查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="REQUEST">
+		<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN_CHK_FLG" type="PIN_IND">
+				<xs:annotation>
+					<xs:documentation>是否检查密码标志</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN" type="PIN">
+				<xs:annotation>
+					<xs:documentation>密码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHK_OPTION">
+				<xs:annotation>
+					<xs:documentation>检查项目选择</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ID_NO" type="ID_NO">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HOME_TEL" type="HOME_PHONE">
+				<xs:annotation>
+					<xs:documentation>家庭电话</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BIRTHDAY" type="D8">
+				<xs:annotation>
+					<xs:documentation>出生年月日</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MOBILE_TEL" type="MOBILE">
+				<xs:annotation>
+					<xs:documentation>手机号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_PAGE_NO">
+				<xs:annotation>
+					<xs:documentation>查询页号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RTN_PAGE_FLG">
+				<xs:annotation>
+					<xs:documentation>翻页标志</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+				<xs:annotation>
+					<xs:documentation>保留</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="START_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>起始日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="END_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>终止日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

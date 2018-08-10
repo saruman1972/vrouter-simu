@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+		<xs:element name="SERVICE_ID" fixed="2033" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>卡未出账单明细</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+    <xs:sequence>
+    	<xs:element name="QRY_PAGE_NO">
+        <xs:annotation>
+            <xs:documentation>查询页号</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="6"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="RTN_PAGE_FLG">
+        <xs:annotation>
+            <xs:documentation>翻页标志</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="1"/>
+                <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>查询完毕</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>需继续翻页查询</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="RECORDS">
+        <xs:annotation>
+            <xs:documentation>明细笔数</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="DETAIL_CNT">
+        <xs:annotation>
+            <xs:documentation>明细序号</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="8"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="CARD_NO" type="CARD_NO">
+        <xs:annotation>
+            <xs:documentation>卡号</xs:documentation>
+        </xs:annotation>
+    	</xs:element>
+    	<xs:element name="TRANS_DATE">
+        <xs:annotation>
+            <xs:documentation>交易日</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="SET_DATE">
+        <xs:annotation>
+            <xs:documentation>记账日</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="ABS">
+        <xs:annotation>
+            <xs:documentation>交易摘要</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="60"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="OPP_ACCT_NO">
+        <xs:annotation>
+            <xs:documentation>对方账号</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="32"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="OPP_ACCT_NAME">
+        <xs:annotation>
+            <xs:documentation>对方户名</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="60"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="MERCHANT_NAME">
+        <xs:annotation>
+            <xs:documentation>商户名称</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="60"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="AUTH_CODE">
+        <xs:annotation>
+            <xs:documentation>授权码</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="CURR_CD" type="CURR_CD">
+        <xs:annotation>
+            <xs:documentation>币种</xs:documentation>
+        </xs:annotation>
+    	</xs:element>
+    	<xs:element name="DC_FLAG">
+        <xs:annotation>
+            <xs:documentation>借贷标志</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="1"/>
+                <xs:enumeration value="D">
+                    <xs:annotation>
+                      <xs:documentation>借</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="C">
+                    <xs:annotation>
+                      <xs:documentation>贷</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="TRANS_AMT">
+        <xs:annotation>
+            <xs:documentation>交易金额</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="12"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    	<xs:element name="RESERV">
+        <xs:annotation>
+            <xs:documentation>保留</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="C">
+                <xs:length value="40"/>
+            </xs:restriction>
+        </xs:simpleType>
+    	</xs:element>
+    </xs:sequence>
+    </xs:complexType>
+</xs:schema>

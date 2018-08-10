@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="B0">
+		<xs:annotation>
+			<xs:documentation>不带小数的金额</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B">
+		<xs:annotation>
+			<xs:documentation>12.2位金额字段</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+            <xs:length value="12"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="B2">
+		<xs:annotation>
+			<xs:documentation>2位金额格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="D8" id="D">
+		<xs:annotation>
+			<xs:documentation>8位的日期格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="D6">
+		<xs:annotation>
+			<xs:documentation>6位日期格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="D4">
+		<xs:annotation>
+			<xs:documentation>4位日期格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="H">
+		<xs:annotation>
+			<xs:documentation>十六进制数据</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+            <xs:pattern value="^[0-9a-fA-F]*$"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T">
+		<xs:annotation>
+			<xs:documentation>时间戳</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="C">
+			<xs:length value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="C">
+		<xs:annotation>
+			<xs:documentation>字符格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="N">
+		<xs:annotation>
+			<xs:documentation>数字格式</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="CHANNEL_ID">
+		<xs:annotation>
+			<xs:documentation>服务渠道编号</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+			<xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:documentation>本行柜台</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:documentation>本行ATM/CDM</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:documentation>本行POS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="04">
+                <xs:annotation>
+                    <xs:documentation>银联（含柜面通）</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="05">
+                <xs:annotation>
+                    <xs:documentation>网银</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="06">
+                <xs:annotation>
+                    <xs:documentation>手机银行</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="07">
+                <xs:annotation>
+                    <xs:documentation>CallCenter</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="08">
+                <xs:annotation>
+                    <xs:documentation>短信</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="09">
+                <xs:annotation>
+                    <xs:documentation>网上支付</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="10">
+                <xs:annotation>
+                    <xs:documentation>批量</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="11">
+                <xs:annotation>
+                    <xs:documentation>结算（支付）</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:documentation>系统内（管理系统发起）</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="13">
+                <xs:annotation>
+                    <xs:documentation>农信银</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="URGENT_FLG">
+		<xs:annotation>
+			<xs:documentation>加急标志</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>不加急</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>加急</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CARD_NO">
+		<xs:annotation>
+			<xs:documentation>卡号</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CURR_CD">
+		<xs:annotation>
+			<xs:documentation>币种</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="3"/>
+			<xs:enumeration value="156">
+                <xs:annotation>
+                    <xs:documentation>人民币</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+			<xs:enumeration value="840">
+                <xs:annotation>
+                    <xs:documentation>美元</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PIN_IND">
+		<xs:annotation>
+			<xs:documentation>是否检查密码</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0">
+                <xs:annotation>
+                    <xs:documentation>不检查密码</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+                <xs:annotation>
+                    <xs:documentation>检查查询密码</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+                <xs:annotation>
+                    <xs:documentation>检查取现密码</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PIN">
+		<xs:annotation>
+			<xs:documentation>密码</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CHK_OPTION">
+		<xs:annotation>
+			<xs:documentation>检查项目选择</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ID_TYPE">
+		<xs:annotation>
+			<xs:documentation>证件类型</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:documentation>身份证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+                <xs:annotation>
+                    <xs:documentation>户口簿</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:documentation>护照</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+                <xs:annotation>
+                    <xs:documentation>军官证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="14">
+                <xs:annotation>
+                    <xs:documentation>士兵证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="15">
+                <xs:annotation>
+                    <xs:documentation>港澳通行证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="16">
+                <xs:annotation>
+                    <xs:documentation>台胞证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="17">
+                <xs:annotation>
+                    <xs:documentation>临时身份证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="18">
+                <xs:annotation>
+                    <xs:documentation>外国人居留证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="19">
+                <xs:annotation>
+                    <xs:documentation>警官证</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1X">
+                <xs:annotation>
+                    <xs:documentation>其他证件</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="21">
+                <xs:annotation>
+                    <xs:documentation>组织机构代码</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ID_NO">
+		<xs:annotation>
+			<xs:documentation>证件号码</xs:documentation>
+		</xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="HOME_PHONE">
+		<xs:annotation>
+			<xs:documentation>家庭电话</xs:documentation>
+		</xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="MOBILE">
+		<xs:annotation>
+			<xs:documentation>手机号码</xs:documentation>
+		</xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="EXPIRY_DATE">
+		<xs:annotation>
+			<xs:documentation>有效期</xs:documentation>
+		</xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="4"/>
+        </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KEY_TYPE">
+		<xs:annotation>
+			<xs:documentation>密钥标识</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="001">
+                <xs:annotation>
+                    <xs:documentation>MAC KEY</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="002">
+                <xs:annotation>
+                    <xs:documentation>PIN KEY</xs:documentation>
+                </xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

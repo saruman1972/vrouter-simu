@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="sqNfsDoc.xsd"/>
+	<xs:complexType name="SERVICE_BODY_TYPE">
+		<xs:sequence>
+			<xs:element name="RESPONSE" type="RESPONSE"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

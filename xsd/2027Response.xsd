@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2027" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>申请进度查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="ID_TYPE" type="ID_TYPE">
+				<xs:annotation>
+					<xs:documentation>证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_NO" type="ID_NO">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			 <xs:element name="CARD_STATUS">
+			      <xs:annotation>
+				<xs:documentation>卡申请状态</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>资料已录入，待核查</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>已检查，待审批</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>已通过审批</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="3">
+				    <xs:annotation>
+				      <xs:documentation>未通过审批</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="4">
+				    <xs:annotation>
+				      <xs:documentation>卡已激活</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="APPLY_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>申请受理日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="APPLY_PRODUCT_DESC">
+				<xs:annotation>
+					<xs:documentation>申请卡产品名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="APPLY_CARD_RELATION">
+			      <xs:annotation>
+				<xs:documentation>申请主附卡标志</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>主卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>附卡</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="APPLY_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>申请额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXAM_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>审批通过日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXAM_PRODUCT_DESC">
+				<xs:annotation>
+					<xs:documentation>审批通过产品名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EXAM_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>审批通过额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ABSTRACT">
+				<xs:annotation>
+					<xs:documentation>摘要</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+				<xs:annotation>
+					<xs:documentation>保留</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

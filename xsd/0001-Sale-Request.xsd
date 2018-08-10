@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sq8583DocRequest.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="0001" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>消费</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="REQUEST">
+		<xs:sequence>
+			<xs:element name="MTI" fixed="0200" type="MTI">
+				<xs:annotation>
+					<xs:documentation>MTI</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CARD_NO" type="B002">
+				<xs:annotation>
+					<xs:documentation>CARD NO</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PROCESS_CODE" fixed="000000" type="B003">
+				<xs:annotation>
+					<xs:documentation>PROCESSING CODE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_AMT" type="B004">
+				<xs:annotation>
+					<xs:documentation>Transaction Amount</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_DATE_TIME" type="B007">
+				<xs:annotation>
+					<xs:documentation>Transmission Date Time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRACE_NO" type="B011">
+				<xs:annotation>
+					<xs:documentation>System Trace No</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_DATE" type="B012">
+				<xs:annotation>
+					<xs:documentation>Transaction Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_TIME" type="B013">
+				<xs:annotation>
+					<xs:documentation>Transaction Time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRY_DATE" type="B014">
+				<xs:annotation>
+					<xs:documentation>Expiry Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SETT_DATE" type="B015">
+				<xs:annotation>
+					<xs:documentation>Settlement Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MCC" type="B018">
+				<xs:annotation>
+					<xs:documentation>MCC</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POS_ENTRY_MODE" type="B022">
+				<xs:annotation>
+					<xs:documentation>Pos Entry Mode</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POS_COND_CODE" type="B025">
+				<xs:annotation>
+					<xs:documentation>Pos Condition Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="POS_PIN_CODE" type="B026">
+				<xs:annotation>
+					<xs:documentation>Pos Pin Capture Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_FEE" type="B028">
+				<xs:annotation>
+					<xs:documentation>Transaction Fee</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACQ_INS_CD" fixed="123456" type="B032">
+				<xs:annotation>
+					<xs:documentation>Acquiring Institution Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FWD_INS_CD" type="B033">
+				<xs:annotation>
+					<xs:documentation>Forwarding Institution Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRK_2_DATA" type="B035">
+				<xs:annotation>
+					<xs:documentation>Track 2 Data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRK_3_DATA" type="B036">
+				<xs:annotation>
+					<xs:documentation>Track 3 Data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REF_NO" type="B037">
+				<xs:annotation>
+					<xs:documentation>Retrivial Reference Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACQ_TERM_ID" type="B041">
+				<xs:annotation>
+					<xs:documentation>Acceptor Terminal Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACQ_MERC_ID" type="B042">
+				<xs:annotation>
+					<xs:documentation>Acceptor Merchant Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACQ_NAME" type="B043">
+				<xs:annotation>
+					<xs:documentation>Acceptor Name Location</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ADD_DATA" type="B048">
+				<xs:annotation>
+					<xs:documentation>Addtional Data Private</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRAN_CURR_CD" type="B049">
+				<xs:annotation>
+					<xs:documentation>Transaction Currency Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PIN_BLOCK" type="B052">
+				<xs:annotation>
+					<xs:documentation>Pin Block Data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SECU_INFO" fixed="2600000000000000" type="B053">
+				<xs:annotation>
+					<xs:documentation>Security Related Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RECV_INST_CD" type="B100">
+				<xs:annotation>
+					<xs:documentation>Receiving Institution Cd</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ACQ_RESERVED" type="B122">
+				<xs:annotation>
+					<xs:documentation>Acquiring Institution Reserved</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

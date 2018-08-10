@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2002" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>按卡号查询卡资料信息</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+		<xs:complexType name="RESPONSE">
+			<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+							<xs:annotation>
+								<xs:documentation>卡号</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CERT_TYPR" type="ID_TYPE">
+							<xs:annotation>
+								<xs:documentation>证件类型</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CERT_NO" type="ID_NO">
+							<xs:annotation>
+								<xs:documentation>证件号码</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CUST_NAME">
+							<xs:annotation>
+								<xs:documentation>持卡人姓名</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="30"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PY_NAME">
+							<xs:annotation>
+								<xs:documentation>拼音名</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="28"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ISSUE_DATE">
+							<xs:annotation>
+								<xs:documentation>发卡日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="OPEN_DATE">
+							<xs:annotation>
+								<xs:documentation>开卡日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CREDIT_LIMIT" type="B">
+							<xs:annotation>
+								<xs:documentation>总授信额度</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="AVAIL_LIMIT" type="B">
+							<xs:annotation>
+								<xs:documentation>可用额度</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CA_LIMIT" type="B">
+							<xs:annotation>
+								<xs:documentation>预借现金信用额度</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CA_AVAIL_LIMIT" type="B">
+							<xs:annotation>
+								<xs:documentation>预借现金可用额度</xs:documentation>
+							</xs:annotation>
+				</xs:element>
+				<xs:element name="CARD_STATUS">
+							<xs:annotation>
+								<xs:documentation>卡片状态</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>正常</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>待制卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>待领卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>待激活</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>待改密</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="5">
+                    <xs:annotation>
+                      <xs:documentation>挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="6">
+                    <xs:annotation>
+                      <xs:documentation>锁卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="7">
+                    <xs:annotation>
+                      <xs:documentation>注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="8">
+                    <xs:annotation>
+                      <xs:documentation>止付</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CARD_RELATION">
+							<xs:annotation>
+								<xs:documentation>主附卡标志</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CARD_PC_RELA">
+							<xs:annotation>
+								<xs:documentation>主附卡关系</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>配偶</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>父母</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>子女</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>兄弟姐妹</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="9">
+                    <xs:annotation>
+                      <xs:documentation>其他</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PRIMARY_CARD_NO">
+							<xs:annotation>
+								<xs:documentation>主卡卡号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="EXPIRY_DAYE">
+							<xs:annotation>
+								<xs:documentation>卡片有效期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PRODUCT_DESC">
+							<xs:annotation>
+								<xs:documentation>卡片产品种类描述</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="30"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PRODUCT_CODE">
+							<xs:annotation>
+								<xs:documentation>卡片产品编号</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="4"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PIN_ERROR_CNT">
+							<xs:annotation>
+								<xs:documentation>密码今日错误次数</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PIN_ERROR_CNT">
+							<xs:annotation>
+								<xs:documentation>密码累计错误次数</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="LOSS_DATE">
+							<xs:annotation>
+								<xs:documentation>卡片挂失日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="LOSS_MODE">
+							<xs:annotation>
+								<xs:documentation>挂失类型</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>正常</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>临时挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>正式挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>密码挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>临时挂失和密码挂失</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ACTIVATION_DATE">
+							<xs:annotation>
+								<xs:documentation>卡片生效日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ANNUL_MODE">
+							<xs:annotation>
+								<xs:documentation>卡片注销原因</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>正常</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>银行注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>挂失换卡注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>销户注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>主卡注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="5">
+                    <xs:annotation>
+                      <xs:documentation>单位注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="6">
+                    <xs:annotation>
+                      <xs:documentation>撤销担保注销</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ANNUAL_FEE_DATE">
+							<xs:annotation>
+								<xs:documentation>下次年费日期</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="8"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="PIN_CHECK_MODE">
+							<xs:annotation>
+								<xs:documentation>卡消费凭密</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>不凭密</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>消费凭密</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="CARD_FUNC">
+							<xs:annotation>
+								<xs:documentation>卡功能</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="10"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ATATE_ADDR">
+							<xs:annotation>
+								<xs:documentation>卡账单地址</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>住宅地址</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>单位地址</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="3">
+                    <xs:annotation>
+                      <xs:documentation>户籍地址</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="4">
+                    <xs:annotation>
+                      <xs:documentation>同主卡账单地址</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ACCT_BRAN_CODE">
+							<xs:annotation>
+								<xs:documentation>账户机构</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="APPLY_BRAN_CODE">
+							<xs:annotation>
+								<xs:documentation>营销机构</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="ACTIVE_FLAG">
+							<xs:annotation>
+								<xs:documentation>激活状态</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="A">
+                    <xs:annotation>
+                      <xs:documentation>自动续卡未激活</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="C">
+                    <xs:annotation>
+                      <xs:documentation>换发卡未激活</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="O">
+                    <xs:annotation>
+                      <xs:documentation>新发卡未激活</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="N">
+                    <xs:annotation>
+                      <xs:documentation>正常卡</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="TRANS_PIN_STATUS">
+							<xs:annotation>
+								<xs:documentation>交易密码设置状态</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:length value="1"/>
+                  <xs:enumeration value="0">
+                    <xs:annotation>
+                      <xs:documentation>未设置交易密码</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>交易密码已设置</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+				<xs:element name="RESERV">
+							<xs:annotation>
+								<xs:documentation>保留</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="C">
+									<xs:length value="40"/>
+								</xs:restriction>
+							</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="sqNfsDocRequest.xsd"/>
+		<xs:element name="SERVICE_ID" fixed="2033" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>卡未出账单明细</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="REQUEST">
+    <xs:sequence>
+    	
+    	<xs:element name="START_DATE">
+        <xs:annotation>
+            <xs:documentation>账单月份</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+    	</xs:element>
+    	<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUR_TYPE">
+			      <xs:annotation>
+				<xs:documentation>币种类型</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>所有币种</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>本币</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>外币</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+    	<xs:element name="QRY_PAGE_NO">
+        <xs:annotation>
+            <xs:documentation>查询页号</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+    	</xs:element>
+    	<xs:element name="RTN_PAGE_F">
+        <xs:annotation>
+            <xs:documentation>翻页标志</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+    	</xs:element>
+    	<xs:element name="RESERV">
+        <xs:annotation>
+            <xs:documentation>保留</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+    	</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+</xs:schema>

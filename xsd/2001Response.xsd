@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2001" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>基本资料查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CUST_NAME">
+				<xs:annotation>
+					<xs:documentation>客户名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PRODUCT_DESC">
+				<xs:annotation>
+					<xs:documentation>产品名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BRAND_DESC">
+				<xs:annotation>
+					<xs:documentation>品牌名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_NUM">
+				<xs:annotation>
+					<xs:documentation>公司代码</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CORP_NAME">
+				<xs:annotation>
+					<xs:documentation>公司名称</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LOSS_MODE">
+			      <xs:annotation>
+				<xs:documentation>挂失类型</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				 <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>正常</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>临时挂失</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="2">
+				    <xs:annotation>
+				      <xs:documentation>正式挂失</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="3">
+				    <xs:annotation>
+				      <xs:documentation>密码挂失</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				   <xs:enumeration value="4">
+				    <xs:annotation>
+				      <xs:documentation>临时挂失和密码挂失</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			</xs:element>
+			<xs:element name="OPEN_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>开户日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EXPIRY_DATE" type="EXPIRY_DATE">
+				<xs:annotation>
+					<xs:documentation>有效期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CREDIT_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>信用额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AUTH_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>授权未达金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FC_AUTH_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>授权未达金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AVAIL_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>可用额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FC_AVAIL_LIMIT" type="B">
+				<xs:annotation>
+					<xs:documentation>可用额度</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REPAY_ACCT_NO">
+				<xs:annotation>
+					<xs:documentation>自动扣缴账号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OVDUE_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>逾期金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FC_OVDUE_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>逾期金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OVDUE_DAYS">
+				<xs:annotation>
+					<xs:documentation>逾期天数</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_OVDUE_DAYS">
+				<xs:annotation>
+					<xs:documentation>逾期天数</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ID_TYPE" type="ID_TYPE">
+				<xs:annotation>
+					<xs:documentation>证件类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_NO" type="ID_NO">
+				<xs:annotation>
+					<xs:documentation>证件号码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CARD_STATUS">
+			<xs:annotation>
+				<xs:documentation>卡状态</xs:documentation>
+		        </xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="0">
+						 <xs:annotation>
+							   <xs:documentation>正常</xs:documentation>
+						  </xs:annotation>
+					</xs:enumeration>
+					  <xs:enumeration value="1">
+						  <xs:annotation>
+							 <xs:documentation>待制卡</xs:documentation>
+						  </xs:annotation>
+					  </xs:enumeration>
+					 <xs:enumeration value="2">
+						<xs:annotation>
+							  <xs:documentation>待领卡</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="3">
+						<xs:annotation>
+							  <xs:documentation>待激活</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="4">
+						<xs:annotation>
+							  <xs:documentation>待改密</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="5">
+						<xs:annotation>
+							  <xs:documentation>挂失</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="6">
+						<xs:annotation>
+							  <xs:documentation>锁卡</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="7">
+						<xs:annotation>
+							  <xs:documentation>注销</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="8">
+						<xs:annotation>
+							  <xs:documentation>止付</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		    </xs:element>
+		    <xs:element name="ACCT_STATUS">
+			<xs:annotation>
+				<xs:documentation>账户状态</xs:documentation>
+		        </xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="0">
+						 <xs:annotation>
+							   <xs:documentation>正常</xs:documentation>
+						  </xs:annotation>
+					</xs:enumeration>
+					  <xs:enumeration value="1">
+						  <xs:annotation>
+							 <xs:documentation>销户</xs:documentation>
+						  </xs:annotation>
+					  </xs:enumeration>
+					 <xs:enumeration value="2">
+						<xs:annotation>
+							  <xs:documentation>法律冻结</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="3">
+						<xs:annotation>
+							  <xs:documentation>止付冻结</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="4">
+						<xs:annotation>
+							  <xs:documentation>预销户冻结</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="5">
+						<xs:annotation>
+							  <xs:documentation>其他冻结</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		    </xs:element>
+		   <xs:element name="CURR_OVPAY_BAL">
+				<xs:annotation>
+					<xs:documentation>溢缴款余额（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CURR_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>透支余额（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PREV_OVLMT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期超限透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PREV_CA_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期取现透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PREV_INST_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期分期透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PREV_PUR_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期消费透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OVLMT_BAL">
+				<xs:annotation>
+					<xs:documentation>本期超限透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CA_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期取现透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INST_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>本期分期透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PUR_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>本期消费透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PREV_OVLMT_CHARGE">
+				<xs:annotation>
+					<xs:documentation>上期超限费（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OVLMT_CHARGE">
+				<xs:annotation>
+					<xs:documentation>本期超限费（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PREV_FEE">
+				<xs:annotation>
+					<xs:documentation>上期费用（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CURR_FEE">
+				<xs:annotation>
+					<xs:documentation>本期费用（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LATE_CHARGE">
+				<xs:annotation>
+					<xs:documentation>滞纳金（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CA_LIMIT">
+				<xs:annotation>
+					<xs:documentation>预借现金信用额度（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CA_AVAIL_LIMIT">
+				<xs:annotation>
+					<xs:documentation>预借现金可用额度（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="FC_CURR_OVPAY_BAL">
+				<xs:annotation>
+					<xs:documentation>溢缴款余额（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_CURR_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>透支余额（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PREV_OVLMT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期超限透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PREV_CA_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期取现透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PREV_INST_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期分期透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PREV_PUR_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期消费透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_OVLMT_BAL">
+				<xs:annotation>
+					<xs:documentation>本期超限透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_CA_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>上期取现透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_INST_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>本期分期透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PUR_OVDFT_BAL">
+				<xs:annotation>
+					<xs:documentation>本期消费透支（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PREV_OVLMT_CHARGE">
+				<xs:annotation>
+					<xs:documentation>上期超限费（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_OVLMT_CHARGE">
+				<xs:annotation>
+					<xs:documentation>本期超限费（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_PREV_FEE">
+				<xs:annotation>
+					<xs:documentation>上期费用（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_CURR_FEE">
+				<xs:annotation>
+					<xs:documentation>本期费用（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_LATE_CHARGE">
+				<xs:annotation>
+					<xs:documentation>滞纳金（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_CA_LIMIT">
+				<xs:annotation>
+					<xs:documentation>预借现金信用额度（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_CA_AVAIL_LIMIT">
+				<xs:annotation>
+					<xs:documentation>预借现金可用额度（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TOTAL_BONUS">
+				<xs:annotation>
+					<xs:documentation>客户累积总积分</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AVAIL_BONUSS">
+				<xs:annotation>
+					<xs:documentation>客户累积可兑换积分</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_REPAY_ACCT_NO">
+				<xs:annotation>
+					<xs:documentation>自动扣缴账号(外币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="STATMENT">
+				<xs:annotation>
+					<xs:documentation>账单日</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PAYMENT_DUE_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>本期最后还款日</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AI_AMT">
+				<xs:annotation>
+					<xs:documentation>应收利息（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_AI_AMT">
+				<xs:annotation>
+					<xs:documentation>应收利息（外币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CI_AMT">
+				<xs:annotation>
+					<xs:documentation>催收利息（本币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_CI_AMT">
+				<xs:annotation>
+					<xs:documentation>催收利息（外币）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INST_TERM_NUM">
+				<xs:annotation>
+					<xs:documentation>分期笔数</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INST_TERM_SUM">
+				<xs:annotation>
+					<xs:documentation>分期总金额</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INST_PAY_AMT">
+				<xs:annotation>
+					<xs:documentation>每期扣款金额</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TR_AMT">
+				<xs:annotation>
+					<xs:documentation>当前欠款合计(本币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="F_TR_AMT">
+				<xs:annotation>
+					<xs:documentation>当前欠款合计(外币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			 <xs:element name="CUR_FLAG">
+              <xs:annotation>
+                <xs:documentation>币种标志</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="1">
+                    <xs:annotation>
+                      <xs:documentation>单币种</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="2">
+                    <xs:annotation>
+                      <xs:documentation>双币种</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+			<xs:element name="F_CUR_CODE">
+				<xs:annotation>
+					<xs:documentation>外币币种域</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OVDFT_STATUS">
+				<xs:annotation>
+					<xs:documentation>本币账户透支形态</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FC_OVDFT_STATUS">
+				<xs:annotation>
+					<xs:documentation>外币账户透支形态</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ACCT_BRAN_CODE">
+				<xs:annotation>
+					<xs:documentation>账户机构</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="APPLY_BRAN_CODE">
+				<xs:annotation>
+					<xs:documentation>营销机构</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TOTAL_RECEIVABLE_AMT">
+				<xs:annotation>
+					<xs:documentation>全部应还款额(本币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MININUM_PAYMENT_AMT">
+				<xs:annotation>
+					<xs:documentation>最低应还款额(本币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="F_TOTAL_RECEIVABLE_AMT">
+				<xs:annotation>
+					<xs:documentation>全部应还款额(外币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="F_MININUM_PAYMENT_AMT">
+				<xs:annotation>
+					<xs:documentation>最低应还款额(外币)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="N">
+						<xs:length value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PAYMENT_MODE">
+			      <xs:annotation>
+				<xs:documentation>挂失类型</xs:documentation>
+			      </xs:annotation>
+			      <xs:simpleType>
+				<xs:restriction base="xs:string">
+				  <xs:enumeration value="0">
+				    <xs:annotation>
+				      <xs:documentation>全部还款额方式</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				  <xs:enumeration value="1">
+				    <xs:annotation>
+				      <xs:documentation>最低还款额方式</xs:documentation>
+				    </xs:annotation>
+				  </xs:enumeration>
+				</xs:restriction>
+			      </xs:simpleType>
+			    </xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

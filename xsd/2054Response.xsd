@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by zhanght (allinpdy) -->
+<xs:schema xmlns="http://www.allinfinance.com/dataspec/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.allinfinance.com/dataspec/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="sqNfsDocResponse.xsd"/>
+    <xs:element name="SERVICE_ID" fixed="2054" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>还款明细查询</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RESPONSE">
+		<xs:sequence>
+			<xs:element name="CARD_NO" type="CARD_NO">
+				<xs:annotation>
+					<xs:documentation>卡号</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="START_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>起始日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="END_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>结束日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRY_PAGE_NO">
+				<xs:annotation>
+					<xs:documentation>查询页号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RTN_PAGE_FLG">
+				<xs:annotation>
+					<xs:documentation>翻页标志</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RESERV">
+				<xs:annotation>
+					<xs:documentation>保留</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="40"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RECORDS">
+				<xs:annotation>
+					<xs:documentation>本次返回交易条数</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>交易日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_BRAN_CODE">
+				<xs:annotation>
+					<xs:documentation>交易机构</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_ADDR">
+				<xs:annotation>
+					<xs:documentation>交易地点</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TRANS_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>原交易金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SET_DATE" type="D8">
+				<xs:annotation>
+					<xs:documentation>入账日期</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REPAY_ACCT_NO">
+				<xs:annotation>
+					<xs:documentation>还款账号</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CUR_CODE" type="CURR_CD">
+				<xs:annotation>
+					<xs:documentation>交易币种</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="REPAYMENT_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>实际还款金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOTAL_PUR_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>消费金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOTAL_XFER_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>超限金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOTAL_CASH_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>取现金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOTAL_INST_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>分期金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CHARGE_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>费用金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FEE_BAL" type="B">
+				<xs:annotation>
+					<xs:documentation>利息金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TOTAL_PUR_AMT" type="B">
+				<xs:annotation>
+					<xs:documentation>消费金额</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANS_ABS">
+				<xs:annotation>
+					<xs:documentation>交易摘要</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="C">
+						<xs:length value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
